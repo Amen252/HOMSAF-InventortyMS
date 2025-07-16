@@ -1,16 +1,19 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Components/Login';
-import Register from './Components/Register ';
+import { Routes, Route } from 'react-router-dom';  // Import Routes and Route
+import HomePage from './Components/Home';
+import Dashboard from './Components/Dashboard'
+import MainLayout from './Components/MainLayout ';
 
-const App = () => {
+function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      {/* HomePage route without Sidebar */}
+      <Route path="/" element={<HomePage />} />  
+
+      {/* Dashboard route with Sidebar */}
+      <Route path="/dashboard" element={<MainLayout><Dashboard /></MainLayout>} />
     </Routes>
   );
-};
+}
 
 export default App;
